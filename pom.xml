@@ -46,6 +46,7 @@
 		<activiti.version>5.16.4</activiti.version>
 		<mybatis.version>3.2.8</mybatis.version>
 		<mybatis.spring.version>1.2.2</mybatis.spring.version>
+		<rxtx.version>2.2</rxtx.version>
 	</properties>
 
 	<modules>
@@ -221,7 +222,7 @@
 				<artifactId>things-common</artifactId>
 				<version>${project.version}</version>
 			</dependency>
-		
+
 			<!-- spring -->
 			<dependency>
 				<groupId>org.springframework</groupId>
@@ -376,6 +377,19 @@
 				</exclusions>
 			</dependency>
 			<!-- 缓存结束 -->
+
+			<dependency>
+				<groupId>io.netty</groupId>
+				<artifactId>netty-all</artifactId>
+				<version>4.0.34.Final</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.bidib.jbidib.org.qbang.rxtx</groupId>
+				<artifactId>rxtxcomm</artifactId>
+				<version>${rxtx.version}</version>
+			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 

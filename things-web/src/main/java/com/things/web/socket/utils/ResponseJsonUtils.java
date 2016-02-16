@@ -17,13 +17,6 @@ import org.apache.commons.beanutils.PropertyUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * @ClassName: JsonUtils
- * @Description:
- * @author chenpeng
- * @date 2012-8-30 下午12:13:22
- * 
- */
 public class ResponseJsonUtils {
 	private static Logger logger = LoggerFactory.getLogger(ResponseJsonUtils.class);
 

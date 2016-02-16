@@ -10,16 +10,6 @@ import io.netty.handler.codec.http.FullHttpResponse;
 import io.netty.handler.codec.http.HttpHeaders;
 import io.netty.util.CharsetUtil;
 
-/** 
-* @project:		demo
-* @Title:		HttpUtils.java
-* @Package:		cpgame.demo.utils
-  @author: 		chenpeng
-* @email: 		46731706@qq.com
-* @date:		2015年8月27日 上午10:10:31 
-* @description:
-* @version:
-*/
 public class HttpUtils {
 	public static void sendHttpResponse(ChannelHandlerContext ctx, FullHttpRequest req, FullHttpResponse res) {
 		if (res.getStatus().code() != 200) {

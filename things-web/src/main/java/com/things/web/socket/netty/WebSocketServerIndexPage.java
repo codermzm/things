@@ -4,16 +4,7 @@ import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.util.CharsetUtil;
 
-/** 
-* @project:		demo
-* @Title:		WebSocketServerIndexPage.java
-* @Package:		cpgame.demo.netty
-  @author: 		chenpeng
-* @email: 		46731706@qq.com
-* @date:		2015年8月20日 下午2:32:36 
-* @description:
-* @version:
-*/
+
 public class WebSocketServerIndexPage {
 
 	  public static ByteBuf getContent(String webSocketLocation)

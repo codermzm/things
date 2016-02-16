@@ -11,8 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/")
 public class LoginController extends AbstractController<UserEntity> {
 
-
-
 	@RequestMapping("/login")
 	public ModelAndView index() {
 		return new ModelAndView("/Login");

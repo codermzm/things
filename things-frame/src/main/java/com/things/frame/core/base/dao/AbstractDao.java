@@ -37,9 +37,7 @@ public abstract class AbstractDao<T extends Identifiable> implements IBaseDao<T>
 
 	/**
 	 * 获取泛型类型的实体对象类全名
-	 * @author LiuJunGuang
 	 * @return
-	 * @date 2014年3月3日下午6:17:46
 	 */
 	protected String getDefaultSqlNamespace() {
 		Class<?> genericClass = TypeUtils.getGenericClass(this.getClass());
@@ -47,21 +45,16 @@ public abstract class AbstractDao<T extends Identifiable> implements IBaseDao<T>
 	}
 
 	/**
-	 * 获取SqlMapping命名空间 
-	 * @author LiuJunGuang
-	 * @return SqlMapping命名空间 
-	 * @date 2014年3月4日上午12:33:15
+	 * 获取SqlMapping命名空间
+	 * @return SqlMapping命名空间
 	 */
 	public String getSqlNamespace() {
 		return sqlNamespace;
 	}
 
 	/**
-	 * 设置SqlMapping命名空间。 以改变默认的SqlMapping命名空间，
-	 * 不能滥用此方法随意改变SqlMapping命名空间。 
-	 * @author LiuJunGuang
-	 * @param sqlNamespace SqlMapping命名空间 
-	 * @date 2014年3月4日上午12:33:17
+	 * 不能滥用此方法随意改变SqlMapping命名空间。
+	 * @param sqlNamespace SqlMapping命名空间
 	 */
 	public void setSqlNamespace(String sqlNamespace) {
 		this.sqlNamespace = sqlNamespace;
@@ -77,17 +70,13 @@ public abstract class AbstractDao<T extends Identifiable> implements IBaseDao<T>
 	}
 
 	/**
-	 * 生成主键值。 默认使用{@link UUIDUtils#create()}方法
-	 * 如果需要生成主键，需要由子类重写此方法根据需要的方式生成主键值。 
-	 * @param entity 要持久化的对象 
+	 * 生成主键值
+	 * 如果需要生成主键，需要由子类重写此方法根据需要的方式生成主键值。
 	 */
 	protected String generateId() {
 		return UUIDUtils.create();
 	}
 
-	/* (non-Javadoc)
-	 * @see com.viathink.core.dao.BaseDao#selectOne(java.io.Serializable)
-	 */
 	@Override
 	public <V extends T> V selectOne(T query) {
 		Assert.notNull(query);
@@ -99,9 +88,6 @@ public abstract class AbstractDao<T extends Identifiable> implements IBaseDao<T>
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see com.viathink.core.dao.BaseDao#selectById(java.io.Serializable)
-	 */
 	@Override
 	public <V extends T> V selectById(String id) {
 		Assert.notNull(id);
@@ -112,9 +98,6 @@ public abstract class AbstractDao<T extends Identifiable> implements IBaseDao<T>
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see com.viathink.core.dao.BaseDao#selectList(java.io.Serializable)
-	 */
 	@Override
 	public <V extends T> List<V> selectList(T query) {
 		try {
@@ -125,9 +108,6 @@ public abstract class AbstractDao<T extends Identifiable> implements IBaseDao<T>
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see com.viathink.core.dao.BaseDao#selectAll()
-	 */
 	@Override
 	public <V extends T> List<V> selectAll() {
 		try {
@@ -137,9 +117,6 @@ public abstract class AbstractDao<T extends Identifiable> implements IBaseDao<T>
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see com.viathink.core.dao.BaseDao#selectMap(java.io.Serializable, java.lang.String)
-	 */
 	@Override
 	public <K, V extends T> Map<K, V> selectMap(T query, String mapKey) {
 		Assert.notNull(mapKey, "[mapKey] - must not be null!");
@@ -153,7 +130,7 @@ public abstract class AbstractDao<T extends Identifiable> implements IBaseDao<T>
 
 	/**
 	 * 设置分页
-	 * @param pageInfo 分页信息
+	 * @param pageable 分页信息
 	 * @return SQL分页参数对象
 	 */
 	protected RowBounds getRowBounds(Pageable pageable) {
@@ -179,9 +156,6 @@ public abstract class AbstractDao<T extends Identifiable> implements IBaseDao<T>
 		return params;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.viathink.core.dao.BaseDao#selectList(com.viathink.core.dao.domain.Identifiable, org.springframework.data.domain.Pageable)
-	 */
 	@Override
 	public <V extends T> List<V> selectList(T query, Pageable pageable) {
 		try {
@@ -191,9 +165,6 @@ public abstract class AbstractDao<T extends Identifiable> implements IBaseDao<T>
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see com.viathink.core.dao.BaseDao#selectPageList(com.viathink.core.dao.domain.Identifiable, org.springframework.data.domain.Pageable)
-	 */
 	@Override
 	public <V extends T> Page<V> selectPageList(T query, Pageable pageable) {
 		try {
@@ -205,9 +176,6 @@ public abstract class AbstractDao<T extends Identifiable> implements IBaseDao<T>
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see com.viathink.core.dao.BaseDao#selectMap(com.viathink.core.dao.domain.Identifiable, java.lang.String, org.springframework.data.domain.Pageable)
-	 */
 	@Override
 	public <K, V extends T> Map<K, V> selectMap(T query, String mapKey, Pageable pageable) {
 		try {
@@ -217,9 +185,6 @@ public abstract class AbstractDao<T extends Identifiable> implements IBaseDao<T>
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see com.viathink.core.dao.BaseDao#selectCount()
-	 */
 	@Override
 	public Long selectCount() {
 		try {
@@ -229,9 +194,6 @@ public abstract class AbstractDao<T extends Identifiable> implements IBaseDao<T>
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see com.viathink.core.dao.BaseDao#selectCount(java.io.Serializable)
-	 */
 	@Override
 	public Long selectCount(T query) {
 		try {
@@ -242,9 +204,6 @@ public abstract class AbstractDao<T extends Identifiable> implements IBaseDao<T>
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see com.viathink.core.dao.BaseDao#insert(java.io.Serializable)
-	 */
 	@Override
 	public void insert(T entity) {
 		Assert.notNull(entity);
@@ -257,9 +216,6 @@ public abstract class AbstractDao<T extends Identifiable> implements IBaseDao<T>
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see com.viathink.core.dao.BaseDao#delete(java.io.Serializable)
-	 */
 	@Override
 	public int delete(T query) {
 		Assert.notNull(query);
@@ -271,9 +227,6 @@ public abstract class AbstractDao<T extends Identifiable> implements IBaseDao<T>
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see com.viathink.core.dao.BaseDao#deleteById(java.io.Serializable)
-	 */
 	@Override
 	public int deleteById(String id) {
 		Assert.notNull(id);
@@ -284,9 +237,6 @@ public abstract class AbstractDao<T extends Identifiable> implements IBaseDao<T>
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see com.viathink.core.dao.BaseDao#deleteAll()
-	 */
 	@Override
 	public int deleteAll() {
 		try {
@@ -296,9 +246,6 @@ public abstract class AbstractDao<T extends Identifiable> implements IBaseDao<T>
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see com.viathink.core.dao.BaseDao#updateById(java.io.Serializable)
-	 */
 	@Override
 	public int updateById(T entity) {
 		Assert.notNull(entity);
@@ -309,9 +256,6 @@ public abstract class AbstractDao<T extends Identifiable> implements IBaseDao<T>
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see com.viathink.core.dao.BaseDao#updateByIdSelective(java.io.Serializable)
-	 */
 	@Override
 	@Transactional
 	public int updateByIdSelective(T entity) {
@@ -324,9 +268,6 @@ public abstract class AbstractDao<T extends Identifiable> implements IBaseDao<T>
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see com.viathink.core.dao.BaseDao#deleteByIdInBatch(java.util.List)
-	 */
 	@Override
 	@Transactional
 	public void deleteByIdInBatch(List<String> idList) {
@@ -337,9 +278,6 @@ public abstract class AbstractDao<T extends Identifiable> implements IBaseDao<T>
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see com.viathink.core.dao.BaseDao#updateInBatch(java.util.List)
-	 */
 	@Override
 	@Transactional
 	public void updateInBatch(List<T> entityList) {
@@ -350,9 +288,6 @@ public abstract class AbstractDao<T extends Identifiable> implements IBaseDao<T>
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see com.viathink.core.dao.BaseDao#insertInBatch(java.util.List)
-	 */
 	@Override
 	public void insertInBatch(List<T> entityList) {
 		if (entityList == null || entityList.isEmpty())

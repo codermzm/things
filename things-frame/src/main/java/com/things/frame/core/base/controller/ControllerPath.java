@@ -7,8 +7,6 @@ import com.things.common.type.TypeUtils;
 
 /**
  * Controller路径构建起
- * @author LiuJunGuang
- * @date 2014年3月5日下午3:11:43
  */
 public class ControllerPath {
 
@@ -121,7 +119,6 @@ public class ControllerPath {
 
 	/**
 	 * 获取类名路径信息，例如：SysDictionary 则返回  "sys/dictionary/"
-	 * @param clazz 类
 	 * @return String 类名路径信息
 	 */
 	private String getBasePath() {
